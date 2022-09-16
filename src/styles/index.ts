@@ -12,13 +12,15 @@ export const {
 } = createStitches({
   theme: {
     colors: {
-      primary: '#1e1e1e',
-      green: '#00875F',
-      greenLight: '#00B37E',
-      gray1: '#121214',
-      gray2: '#202024',
-      gray3: '#C4C4CC',
-      gray4: '#E1E1E6',
+      white: '#fff',
+
+      green500: '#00875F',
+      green300: '#00B37E',
+
+      gray900: '#121214',
+      gray800: '#202024',
+      gray300: '#C4C4CC',
+      gray100: '#E1E1E6',
     },
   },
 })
