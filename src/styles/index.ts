@@ -22,5 +22,12 @@ export const {
       gray300: '#C4C4CC',
       gray100: '#E1E1E6',
     },
+
+    fontSizes: {
+      md: '1.125rem',
+      lg: '1.25rem',
+      xl: '1.5rem',
+      '2xl': '2rem',
+    },
   },
 })
