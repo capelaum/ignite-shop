@@ -2,12 +2,13 @@ import { styled } from 'styles'
 
 export const HomeContainer = styled('main', {
   display: 'flex',
-  // gap: '3rem',
   width: '100%',
   maxWidth: 'calc(100vw - (100vw - 1224px) / 2)',
   paddingLeft: '1.4rem',
   marginLeft: 'auto',
-  minHeight: 500,
+  minHeight: 512,
+  paddingTop: '2rem',
+  paddingBottom: '4rem',
 })
 
 export const Product = styled('a', {
@@ -16,6 +17,8 @@ export const Product = styled('a', {
   cursor: 'pointer',
   position: 'relative',
   overflow: 'hidden',
+  width: 500,
+  padding: '2rem',
 
   display: 'flex',
   flexDirection: 'column',
@@ -31,13 +34,14 @@ export const Product = styled('a', {
     bottom: '0.25rem',
     left: '0.25rem',
     right: '0.25rem',
-    padding: '2rem',
+    padding: '1.5rem',
 
     borderRadius: 6,
 
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
+    gap: '0.5rem',
 
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
 
