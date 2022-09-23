@@ -4,10 +4,10 @@ export const HomeContainer = styled('main', {
   display: 'flex',
   width: '100%',
   maxWidth: 'calc(100vw - (100vw - 1224px) / 2)',
-  paddingLeft: '1.4rem',
   marginLeft: 'auto',
   minHeight: 512,
   paddingTop: '2rem',
+  paddingLeft: '1.4rem',
   paddingBottom: '4rem',
 })
 
@@ -51,6 +51,7 @@ export const Product = styled('a', {
 
     strong: {
       fontSize: '$lg',
+      color: '$gray100',
     },
 
     span: {
