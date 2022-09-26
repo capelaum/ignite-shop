@@ -17,7 +17,7 @@ export function Header() {
         </a>
       </Link>
 
-      <CartButton disabled={cartCount <= 0} onClick={handleCartClick}>
+      <CartButton disabled={cartCount <= 0} onClick={() => handleCartClick()}>
         <Handbag size={24} />
 
         {cartCount > 0 && <span>{cartCount}</span>}

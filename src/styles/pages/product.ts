@@ -47,6 +47,7 @@ export const ProductDetails = styled('main', {
     marginTop: '1rem',
     display: 'block',
     fontSize: '$2xl',
+    fontWeight: 600,
     color: '$green300',
   },
 

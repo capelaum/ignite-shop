@@ -12,19 +12,17 @@ interface CartEntryProps {
 }
 
 export function CartEntry({ entry, removeItem }: CartEntryProps) {
-  console.log('🚀 ~ entry', entry)
-
   return (
     <CartEntryContainer>
       <CartEntryImageContainer>
-        <Image width={100} height={100} src={entry.imageUrl} alt={entry.name} />
+        <Image width={100} height={100} src={entry.image} alt={entry.name} />
       </CartEntryImageContainer>
 
       <CartEntryDetails>
         <h3>{entry.name}</h3>
 
         <p>
-          {entry.quantity} x {entry.price} = {entry.formattedValue}
+          {entry.quantity} x {entry.formattedPrice} = {entry.formattedValue}
         </p>
 
         <button onClick={() => removeItem(entry.id)}>Remove</button>

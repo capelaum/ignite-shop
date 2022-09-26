@@ -14,14 +14,16 @@ import Link from 'next/link'
 import { Handbag } from 'phosphor-react'
 import { stripe } from 'services/stripe'
 import Stripe from 'stripe'
-import { useShoppingCart } from 'use-shopping-cart'
+import { formatCurrencyString, useShoppingCart } from 'use-shopping-cart'
 
 interface HomeProps {
   products: {
     id: string
     name: string
-    price: string
-    imageUrl: string
+    image: string
+    price: number
+    price_id: string
+    currency: string
   }[]
 }
 
@@ -45,17 +47,24 @@ export default function Home({ products }: HomeProps) {
         {products.map((product) => (
           <Product key={product.id} className="keen-slider__slide">
             <Link href={`/product/${product.id}`} prefetch={false} passHref>
-              <Image
-                src={product.imageUrl}
-                width={520}
-                height={480}
-                alt={product.name}
-              />
+              <a>
+                <Image
+                  src={product.image}
+                  width={520}
+                  height={480}
+                  alt={product.name}
+                />
+              </a>
             </Link>
             <ProductFooter>
               <ProductInfo>
                 <strong>{product.name}</strong>
-                <span>{product.price}</span>
+                <span>
+                  {formatCurrencyString({
+                    value: product.price,
+                    currency: product.currency,
+                  })}
+                </span>
               </ProductInfo>
 
               <button
@@ -83,12 +92,10 @@ export const getStaticProps: GetStaticProps = async () => {
     return {
       id: product.id,
       name: product.name,
-      imageUrl: product.images[0],
-      price: new Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency: 'BRL',
-      }).format(price.unit_amount / 100),
-      sku: price.product as string,
+      image: product.images[0],
+      price: price.unit_amount,
+      price_id: price.id,
+      currency: price.currency as string,
     }
   })
 

@@ -11,7 +11,9 @@ export const SuccessContainer = styled('main', {
   height: 512,
 
   h1: {
-    fontSize: '$2xl',
+    marginTop: '3rem',
+    marginBottom: '1.5rem',
+    fontSize: '$xl',
     color: '$gray100',
     textAlign: 'center',
   },
@@ -40,19 +42,31 @@ export const SuccessContainer = styled('main', {
   },
 })
 
-export const ImageContainer = styled('main', {
-  width: '100%',
-  maxWidth: 130,
-  height: 145,
-  background: 'linear-gradient(180deg, #1ea483 0%, #7465d4 100%)',
-  borderRadius: 8,
-  padding: '0.25rem',
-  marginTop: '4rem',
-  marginBottom: '2rem',
+export const ProductsContainer = styled('section', {
+  position: 'relative',
+
+  height: 140,
 
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+})
+
+export const ImageContainer = styled('main', {
+  width: 140,
+  height: 140,
+
+  position: 'absolute',
+
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+
+  background: 'linear-gradient(180deg, #1ea483 0%, #7465d4 100%)',
+  borderRadius: 999,
+  padding: '0.125rem',
+
+  boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
 
   img: {
     objectFit: 'cover',
