@@ -11,6 +11,7 @@ import {
   ProductContainer,
   ProductDetails,
 } from 'styles/pages/product'
+import { useShoppingCart } from 'use-shopping-cart'
 
 interface ProductProps {
   product: {
@@ -26,6 +27,8 @@ interface ProductProps {
 export default function Product({ product }: ProductProps) {
   const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] =
     useState(false)
+
+  const { addItem } = useShoppingCart()
   const { isFallback } = useRouter()
 
   if (isFallback) {
@@ -71,9 +74,9 @@ export default function Product({ product }: ProductProps) {
 
           <button
             disabled={isCreatingCheckoutSession}
-            onClick={handleBuyProduct}
+            onClick={() => addItem(product)}
           >
-            Comprar agora
+            Colocar na sacola
           </button>
         </ProductDetails>
       </ProductContainer>

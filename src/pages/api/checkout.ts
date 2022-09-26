@@ -22,6 +22,7 @@ export default async function handler(
     success_url: successUrl,
     cancel_url: cancelUrl,
     mode: 'payment',
+
     line_items: [
       {
         price: priceId,

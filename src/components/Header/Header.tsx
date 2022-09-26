@@ -4,16 +4,23 @@ import { Handbag } from 'phosphor-react'
 import { CartButton, HeaderContainer } from './styles'
 
 import logo from 'assets/logo.svg'
+import { useShoppingCart } from 'use-shopping-cart'
 
 export function Header() {
+  const { cartCount, handleCartClick } = useShoppingCart()
+
   return (
     <HeaderContainer>
       <Link href="/" passHref>
-        <Image src={logo} alt="logo" />
+        <a>
+          <Image src={logo} alt="logo" />
+        </a>
       </Link>
 
-      <CartButton>
-        <Handbag size={24} color="#8D8D99" />
+      <CartButton disabled={cartCount <= 0} onClick={handleCartClick}>
+        <Handbag size={24} />
+
+        {cartCount > 0 && <span>{cartCount}</span>}
       </CartButton>
     </HeaderContainer>
   )
