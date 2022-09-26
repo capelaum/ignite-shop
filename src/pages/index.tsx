@@ -12,6 +12,7 @@ import 'keen-slider/keen-slider.min.css'
 import { GetStaticProps } from 'next'
 import Link from 'next/link'
 import { Handbag } from 'phosphor-react'
+import GithubCorner from 'react-github-corner'
 import { stripe } from 'services/stripe'
 import Stripe from 'stripe'
 import { formatCurrencyString, useShoppingCart } from 'use-shopping-cart'
@@ -77,6 +78,16 @@ export default function Home({ products }: HomeProps) {
           </Product>
         ))}
       </HomeContainer>
+
+      <GithubCorner
+        href="https://github.com/capelaum"
+        bannerColor="#7465d4"
+        octoColor="#121214"
+        size={60}
+        direction="left"
+        target="_blank"
+        title="capelaum's Github"
+      />
     </>
   )
 }
