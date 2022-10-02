@@ -1,23 +1,14 @@
+import { Product } from 'components/Product'
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
 import { GetStaticProps } from 'next'
-import Image from 'next/future/image'
 import Head from 'next/head'
-import Link from 'next/link'
-import { CaretLeft, CaretRight, Handbag } from 'phosphor-react'
+import { CaretLeft, CaretRight } from 'phosphor-react'
 import { useState } from 'react'
 import GithubCorner from 'react-github-corner'
 import { stripe } from 'services/stripe'
 import Stripe from 'stripe'
-import {
-  HomeContainer,
-  Product,
-  ProductFooter,
-  ProductInfo,
-  SliderArrow,
-  SliderContainer,
-} from 'styles/pages/home'
-import { formatCurrencyString, useShoppingCart } from 'use-shopping-cart'
+import { HomeContainer, SliderArrow, SliderContainer } from 'styles/pages/home'
 
 interface HomeProps {
   products: {
@@ -33,8 +24,6 @@ interface HomeProps {
 export default function Home({ products }: HomeProps) {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [loaded, setLoaded] = useState(false)
-
-  const { addItem } = useShoppingCart()
 
   const [sliderRef, instanceRef] = useKeenSlider({
     initial: 0,
@@ -64,10 +53,6 @@ export default function Home({ products }: HomeProps) {
     },
   })
 
-  if (loaded && instanceRef.current) {
-    console.log('🚀 ~ instanceRef.current', instanceRef.current)
-  }
-
   return (
     <>
       <Head>
@@ -89,36 +74,7 @@ export default function Home({ products }: HomeProps) {
           </SliderArrow>
 
           {products.map((product) => (
-            <Product key={product.id} className="keen-slider__slide">
-              <Link href={`/product/${product.id}`} prefetch={false} passHref>
-                <a>
-                  <Image
-                    src={product.image}
-                    width={520}
-                    height={480}
-                    alt={product.name}
-                  />
-                </a>
-              </Link>
-              <ProductFooter>
-                <ProductInfo>
-                  <strong>{product.name}</strong>
-                  <span>
-                    {formatCurrencyString({
-                      value: product.price,
-                      currency: product.currency,
-                    })}
-                  </span>
-                </ProductInfo>
-
-                <button
-                  onClick={() => addItem(product)}
-                  title={`Adicionar ${product.name} à sacola`}
-                >
-                  <Handbag size={32} />
-                </button>
-              </ProductFooter>
-            </Product>
+            <Product key={product.id} product={product} />
           ))}
 
           {loaded && instanceRef.current && (
