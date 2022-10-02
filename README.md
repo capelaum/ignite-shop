@@ -1,11 +1,12 @@
 # Ignite Shop
 
+[Live Demo](https://capelaum-ignite-shop.vercel.app)
+
 <img src=".github/Cover.png" alt="Capa Ignite Shop" />
 
 > Desafio principal do módulo 4 do programa Ignite - Trilha React 2.0.
 
 Neste desafio foi necessário implementar a funcionalidade de um carrinho de compras em uma aplicação web que utiliza os dados da API do Stripe para buscar os itens existentes, sendo possível realizar o checkout de múltiplos itens.
-
 
 
 ## Layout
