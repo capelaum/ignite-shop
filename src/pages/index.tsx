@@ -102,7 +102,7 @@ export default function Home({ products }: HomeProps) {
       </HomeContainer>
 
       <GithubCorner
-        href="https://github.com/capelaum"
+        href="https://github.com/capelaum/ignite-shop"
         bannerColor="#7465d4"
         octoColor="#121214"
         size={60}
