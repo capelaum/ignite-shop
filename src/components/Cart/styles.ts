@@ -25,7 +25,7 @@ export const CartContainer = styled('div', {
   top: 0,
   bottom: 0,
   right: 0,
-  zIndex: 1,
+  zIndex: 3,
   width: 480,
 
   paddingLeft: '3rem',
@@ -40,6 +40,12 @@ export const CartContainer = styled('div', {
   h2: {
     fontSize: '$lg',
     fontWeight: 600,
+  },
+
+  '@bp2': {
+    padding: '1.4rem',
+
+    width: '100%',
   },
 })
 

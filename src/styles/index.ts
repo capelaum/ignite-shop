@@ -35,5 +35,6 @@ export const {
 
   media: {
     bp1: '(max-width: 768px)',
+    bp2: '(max-width: 576px)',
   },
 })
